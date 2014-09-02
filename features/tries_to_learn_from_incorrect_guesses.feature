@@ -12,14 +12,14 @@ Feature: Tries to learn from incorrect guesses
 
     # ...
     Given I play the game for the first time
-     When I'm asked if I think of a "kitten"
+     When I'm asked if I think of "a kitten"
       And I decline
 
     # ...
      Then I'm asked what animal I was thinking of
-      And I answer that it was a "rabbit"
+      And I answer that it was "a rabbit"
 
     # ...
-     Then I'm asked to provide a question to help the game distinguish between a "rabbit" and a "kitten"
+     Then I'm asked to provide a question to help the game distinguish between "a rabbit" and "a kitten"
       And I say that the question should be "Is it a small animal"
       And it should be answered "yes"

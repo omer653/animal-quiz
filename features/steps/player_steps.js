@@ -15,7 +15,7 @@ module.exports = (function() {
     function startQuiz() { return quiz.start(); }
     function confirm()   { return quiz.confirm(); }
     function decline()   { return quiz.decline(); }
-    function answer()    { return quiz.answer(); }
+    function answer(text)    { return quiz.answer(text); }
 
 
     return English.library(dictionary)
@@ -39,8 +39,8 @@ module.exports = (function() {
             next();
         })
 
-        .when('I\'m asked if I think of (a|an) "$animal"', function(article, animal, next) {
-            expect(quiz.lastQuestion()).to.equal(format('Is it %s %s?', article, animal));
+        .when('I\'m asked if I think of "$animal"', function(animal, next) {
+            expect(quiz.lastQuestion()).to.equal(format('Is it %s?', animal));
 
             next();
         })
@@ -74,14 +74,14 @@ module.exports = (function() {
             next();
         })
 
-        .when('I answer that it was a "rabbit"', function(next){
-            answer('rabbit').
+        .when('I answer that it was "$animal"', function(animal, next){
+            answer(animal).
 
                 done(next);
         })
 
-        .then('I\'m asked to provide a question to help the game distinguish between a "rabbit" and a "kitten"', function(next) {
-            //TODO: complete this
+        .then('I\'m asked to provide a question to help the game distinguish between "$guess" and "$animal"', function(guess, animal, next) {
+            expect(quiz.lastQuestion()).to.contain(format('What question would help me distinguish %s from %s?', guess, animal));
             next();
         })
 

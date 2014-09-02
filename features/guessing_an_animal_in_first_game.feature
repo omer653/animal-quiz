@@ -6,7 +6,7 @@ Feature: Guessing an animal in the first game
   Background:
 
     Given I play the game for the first time
-     When I'm asked if I think of a "kitten"
+     When I'm asked if I think of "a kitten"
 
   Scenario: Player loses
 
