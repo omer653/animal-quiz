@@ -38,7 +38,7 @@ module.exports = function() {
                 }
                 else {
                     ask('You win! Help me learn from my mistake before you go. What animal were you thinking of?').then(function(animal) {
-                        say('How to distinguish a ' + animal + 'from a kitten?');
+                        say('What question would help me distinguish ' + animal + ' from a kitten?');
                     });
                 }
             });
