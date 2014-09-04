@@ -1,4 +1,4 @@
-// Version : $id$ //
+// Version : $Id$ //
 'use strict';
 
 var English    = require('yadda').localisation.English,
